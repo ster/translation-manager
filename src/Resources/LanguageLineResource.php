@@ -29,7 +29,7 @@ class LanguageLineResource extends Resource
 {
     use CanRegisterPanelNavigation;
     protected static ?string $model = LanguageLine::class;
-    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-alt';
     protected static ?string $slug = 'translation-manager';
 
     /**
