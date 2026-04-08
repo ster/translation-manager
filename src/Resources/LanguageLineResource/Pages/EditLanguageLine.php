@@ -39,7 +39,7 @@ class EditLanguageLine extends EditRecord
         $this->record->flushGroupCache();
     }
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [];
     }

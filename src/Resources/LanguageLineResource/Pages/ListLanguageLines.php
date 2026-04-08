@@ -28,7 +28,7 @@ class ListLanguageLines extends ListRecords
         return $translated;
     }
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Action::make('quick-translate')
