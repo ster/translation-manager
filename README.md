@@ -23,6 +23,7 @@ Install via Composer.
 |----------------|-----------------|-------------|
 | <= 3.x         | 2.x   | \> 8.0      |
 | 4.x            | 3.x             | \> 8.1      |
+| 5.x            | 5.x             | \> 8.2      |
 
 ```bash
 composer require kenepa/translation-manager
@@ -53,7 +54,17 @@ Finally, run the migration.
 
 ### Custom Theme Required
 
-In order to compile the package views correctly, we need to [create a custom Filament theme](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) **first**, and then add the following path to its content:
+In order to compile the package views correctly, we need to [create a custom Filament theme](https://filamentphp.com/docs/5.x/panels/themes#creating-a-custom-theme) **first**, and then add the following path to its content.
+
+**Filament 5 (Tailwind CSS v4)** — add the source in your theme's CSS file:
+
+```css
+/* Located at: /resources/css/filament/admin/theme.css */
+
+@source '../../../../vendor/kenepa/translation-manager/resources/**/*.blade.php';
+```
+
+**Filament 3 (Tailwind CSS v3)** — add the path in the JS config:
 
 ```js
 // Located at: /resources/css/filament/admin/tailwind.config.js

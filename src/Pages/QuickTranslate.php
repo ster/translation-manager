@@ -63,7 +63,7 @@ class QuickTranslate extends Page implements HasForms
                     Select::make('selectedLocale')
                         ->options(collect(config('translation-manager.available_locales'))->pluck('code', 'code'))
                         ->label(__('translation-manager::translations.quick-translate-select-locale'))
-                        ->reactive()
+                        ->live()
                         ->afterStateUpdated(function ($state) {
                             $this->offset = 0;
                             $this->next();

@@ -44,7 +44,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Determines the render hook for the language switcher.
-    | Available render hooks: https://filamentphp.com/docs/3.x/support/render-hooks#available-render-hooks
+    | Available render hooks: https://filamentphp.com/docs/5.x/support/render-hooks#available-render-hooks
     |
     */
 
