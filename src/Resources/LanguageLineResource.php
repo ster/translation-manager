@@ -71,35 +71,36 @@ class LanguageLineResource extends Resource
                     ->disabled()
                     ->columnSpan(2),
 
-                Section::make(__('translation-manager::translations.translations-header'))->schema([
-                    Repeater::make('translations')->schema([
-                        Select::make('language')
-                            ->prefixIcon('heroicon-o-language')
-                            ->label(__('translation-manager::translations.translation-language'))
-                            ->options(collect(config('translation-manager.available_locales'))->pluck('name', 'code'))
-                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
-                            ->columnSpanFull()
-                            ->required(),
+                Section::make(__('translation-manager::translations.translations-header'))
+                    ->schema([
+                        Repeater::make('translations')->schema([
+                            Select::make('language')
+                                ->prefixIcon('heroicon-o-language')
+                                ->label(__('translation-manager::translations.translation-language'))
+                                ->options(collect(config('translation-manager.available_locales'))->pluck('name', 'code'))
+                                ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                                ->columnSpanFull()
+                                ->required(),
 
-                        Textarea::make('text')
-                            ->label(__('translation-manager::translations.translation-text'))
+                            Textarea::make('text')
+                                ->label(__('translation-manager::translations.translation-text'))
+                                ->columnSpanFull()
+                                ->required(),
+                        ])->columns(2)
+                            ->addActionLabel(__('translation-manager::translations.add-translation-button'))
+                            ->hiddenLabel()
+                            ->defaultItems(0)
+                            ->reorderable(false)
+                            ->grid([
+                                'default' => 1,
+                                'sm' => 1,
+                                'md' => 2,
+                                'lg' => 3,
+                            ])
                             ->columnSpanFull()
-                            ->required(),
-                    ])->columns(2)
-                        ->addActionLabel(__('translation-manager::translations.add-translation-button'))
-                        ->hiddenLabel()
-                        ->defaultItems(0)
-                        ->reorderable(false)
-                        ->grid([
-                            'default' => 1,
-                            'sm' => 1,
-                            'md' => 2,
-                            'xl' => 3,
-                            '2xl' => 4,
-                        ])
-                        ->columnSpan(2)
-                        ->maxItems(count(config('translation-manager.available_locales'))),
-                ]),
+                            ->maxItems(count(config('translation-manager.available_locales'))),
+                    ])
+                    ->columnSpanFull(),
             ]);
     }
 

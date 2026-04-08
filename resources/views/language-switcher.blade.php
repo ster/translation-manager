@@ -19,7 +19,6 @@ if(!function_exists('try_svg')) {
                     'pt-0' => $showFlags,
                 ])
                 id="filament-language-switcher"
-                x-on:click="toggle"
         >
             <div
                     @class([
